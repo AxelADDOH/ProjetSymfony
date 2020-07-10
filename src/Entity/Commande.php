@@ -47,6 +47,7 @@ class Commande
     public function __construct()
     {
         $this->livres = new ArrayCollection();
+        $this->date_commande = new \DateTime();
     }
 
     public function getId(): ?int

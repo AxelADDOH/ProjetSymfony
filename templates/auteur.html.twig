@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table class="table table-sm">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Numéro Isbn</th>
+            <th scope=" col">Nom Editeur</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for au in author%}
+        <tr>
+            <th scope="row">1</th>
+            <td> {{ au['titre_livre'] }}</td>
+            <td>{{ au['prix_livre'] }}</td>
+            <td>{{  au['num_isbn_livre'] }}</td>
+            <td>{{ au['nom_editeur'] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

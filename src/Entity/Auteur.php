@@ -6,9 +6,10 @@ use App\Repository\AuteurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 /**
- * @ORM\Entity(repositoryClass=AuteurRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\AuteurRepository", repositoryClass=AuteurRepository::class)
  */
 class Auteur
 {
@@ -49,6 +50,9 @@ class Auteur
         return $this->nom_auteur;
     }
 
+    public function getSlug():string {
+        return (new Slugify())->slugify($this->nom_auteur);
+    }
     public function setNomAuteur(string $nom_auteur): self
     {
         $this->nom_auteur = $nom_auteur;

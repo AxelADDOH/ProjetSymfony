@@ -8,4 +8,21 @@
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
+    <div class ="container">
+        <h2>Les auteurs</h2>
+        <div class="row flex">
+            {% for lst in auteurs %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('auteur.show',{id:lst.id,slug:lst.slug }) }}">{{ lst.nomAuteur }} {{ lst.prenomAuteur }}</a>
+                            </h5>
+                            <p class="card-text">Cliquez pour voir ces livres</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
